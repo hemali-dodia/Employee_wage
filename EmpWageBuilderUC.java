@@ -1,20 +1,37 @@
-public class EmpWageBuilderUC
-{
-	private final String Compny_name;
-	private final int Wage_Per_Hour;
-	private final int Full_Day_Hour;
-	private final int Half_Day_Hour;
-	private final int Total_Working_Days;
-        private final int Total_Working_Hour;
+import java.util.Scanner;
 
-	public static EmpWageForDiffCompany(String Compny_name, int Wage_Per_Hour, int Full_Day_Hour, int Half_Day_Hour, int Total_Working_Days, int Total_Working_Hour)
+public class EmpWageBuilderUC8
+{
+	public static int Wage_Per_Hour;
+        public static byte Full_Day_Hour;
+        public static byte Half_Day_Hour;
+        public static int Total_Working_Days;
+        public static int Total_Working_Hour;
+
+	static void company()
 	{
-		this.Compny_name = Compny_name;
-		this.Wage_Per_Hour = Wage_Per_Hour;
-		this.Full_Day_Hour = Full_Day_Hour;
-		this.Half_Day_Hour = Half_Day_Hour;
-		this.Total_Working_Days = Total_Working_Days;
-		this.Total_Working_Hour = Total_Working_Hour;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter company id");
+		int Company_ID = sc.nextInt();
+		switch(Company_ID)
+		{
+			case 1:
+				System.out.println("welcome to bridgelabz");
+				Wage_Per_Hour = 20;
+				Full_Day_Hour = 8;
+				Half_Day_Hour = 4;
+				Total_Working_Days = 25;
+				Total_Working_Hour = 100;
+				break;
+			case 2:
+				System.out.println("welcome to TCS");
+                                Wage_Per_Hour = 25;
+                                Full_Day_Hour = 9;
+                                Half_Day_Hour = 5;
+                                Total_Working_Days = 30;
+                                Total_Working_Hour = 150;
+                                break;
+		}
 	}
 
 	public static int EmpAttendance()
@@ -39,8 +56,7 @@ public class EmpWageBuilderUC
 
 	public static void main(String[] args)
         {
-		EmpWageBuilderUC8 company_1 = new EmpWageBuilderUC8("company_1", 20, 8, 4, 20, 100);
-
+		company();
 		int EmpWageFullDay = 0;
 		int EmpWageHalfDay = 0;
 		int totalWorkingDays = 0;
@@ -48,7 +64,7 @@ public class EmpWageBuilderUC
 		int totalWage = 0;
 		int Wage = 0;
 
-		while(WorkingHour <= company_1.Total_Working_Hour && totalWorkingDays <= company_1.Total_Working_Days)
+		while(WorkingHour <= Total_Working_Hour && totalWorkingDays <= Total_Working_Days)
 		{
 			if(EmpAttendance()==1)
 			{
@@ -56,14 +72,14 @@ public class EmpWageBuilderUC
 				switch(Part_Full_time)
 				{
 					case 0:
-						EmpWageHalfDay = EmpWage(company_1.Half_Day_Hour);
+						EmpWageHalfDay = EmpWage(Half_Day_Hour);
 						Wage = Wage + EmpWageHalfDay;
-        	        			WorkingHour = WorkingHour + company_1.Half_Day_Hour;
+        	        			WorkingHour = WorkingHour + Half_Day_Hour;
 						break;
         				case 1:
-						EmpWageFullDay = EmpWage(company_1.Full_Day_Hour);
+						EmpWageFullDay = EmpWage(Full_Day_Hour);
 						Wage = Wage + EmpWageFullDay;
-        	        			WorkingHour = WorkingHour + company_1.Full_Day_Hour;
+        	        			WorkingHour = WorkingHour + Full_Day_Hour;
 						break;
 					default:
 						System.out.println("employee wage = 0");
@@ -76,4 +92,5 @@ public class EmpWageBuilderUC
 		System.out.println("monthly wage = "+totalWage);
 	}
 }
+
 
