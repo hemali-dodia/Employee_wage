@@ -11,5 +11,12 @@ public class EmpWageBuilderUC
 			System.out.println("present");
 		else
 			System.out.println("absent");
+
+		int WagePerHour = 20;
+		int FullDayHour = 8;
+		int EmpWage = 0;
+		EmpWage = WagePerHour * FullDayHour;
+		System.out.println("employee wage = "+EmpWage);
+
 	}
 }
