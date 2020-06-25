@@ -18,5 +18,9 @@ public class EmpWageBuilderUC
 		EmpWage = WagePerHour * FullDayHour;
 		System.out.println("employee wage = "+EmpWage);
 
+		int HalfDayHour = 4;
+                int EmpWage = 0;
+		EmpWageHalfDay = WagePerHour * HalfDayHour;
+                System.out.println("employee wage = "+EmpWageHalfDay);
 	}
 }
