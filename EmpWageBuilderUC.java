@@ -13,14 +13,24 @@ public class EmpWageBuilderUC
 			System.out.println("absent");
 
 		int WagePerHour = 20;
-		int FullDayHour = 8;
-		int EmpWage = 0;
-		EmpWage = WagePerHour * FullDayHour;
-		System.out.println("employee wage = "+EmpWage);
-
-		int HalfDayHour = 4;
-                int EmpWage = 0;
-		EmpWageHalfDay = WagePerHour * HalfDayHour;
-                System.out.println("employee wage = "+EmpWageHalfDay);
+		byte FullDayHour = 8;
+		byte HalfDayHour = 4;
+		int EmpWageFullfDay = 0;
+		int EmpWageHalfDay = 0;
+		double WorkingTime = Math.floor(Math.random() * 10) % 2;
+		int Day = (int) WorkingTime;
+		switch(Day)
+		{
+		case 0:
+			EmpWageHalfDay = WagePerHour * HalfDayHour;
+        	        System.out.println("employee wage = "+EmpWageHalfDay);
+			break;
+        	case 1:
+			EmpWageFullfDay = WagePerHour * FullDayHour;
+        	        System.out.println("employee wage = "+EmpWageFullfDay);
+			break;
+		default:
+			System.out.println("employee wage = 0");
+			break;
 	}
 }
