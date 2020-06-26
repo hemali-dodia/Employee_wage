@@ -7,6 +7,7 @@ public class EmpWageBuilderUC
         private final int Total_Working_Days;
         private final int Total_Working_Hour;
         private final String Company_name;
+	private int totalWage = 0;
 
         public EmpWageBuilderUC(String Company_name, int Wage_Per_Hour, int Total_Working_Days, int Total_Working_Hour)
         {
@@ -16,14 +17,14 @@ public class EmpWageBuilderUC
                 this.Total_Working_Hour = Total_Working_Hour;
         }
 
-        public static void ComputeWage()
+        public void ComputeWage()
         {
                 int EmpWageFullDay = 0;
                 int EmpWageHalfDay = 0;
                 int totalWorkingDays = 0;
                 int WorkingHour = 0;
-                int totalWage = 0;
                 int Wage = 0;
+
                 while(WorkingHour <= Total_Working_Hour && totalWorkingDays <= Total_Working_Days)
                 {
                         double WorkingTime = Math.floor(Math.random() * 10) % 2;
