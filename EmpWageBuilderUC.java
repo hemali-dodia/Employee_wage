@@ -1,6 +1,6 @@
 public class EmpWageBuilderUC
 {
-        public static final byte Full_Day_Hour = 8;
+	public static final byte Full_Day_Hour = 8;
         public static final byte Half_Day_Hour = 4;
 
         private final int Wage_Per_Hour;
