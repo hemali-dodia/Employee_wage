@@ -1,4 +1,4 @@
-public class EmpWageBuilderObject
+public class EmpWageBuilderUC
 {
         public static final byte Full_Day_Hour = 8;
         public static final byte Half_Day_Hour = 4;
@@ -8,7 +8,7 @@ public class EmpWageBuilderObject
         private final int Total_Working_Hour;
         private final String Company_name;
 
-        public EmpWageBuilderObject(String Company_name, int Wage_Per_Hour, int Total_Working_Days, int Total_Working_Hour)
+        public EmpWageBuilderUC(String Company_name, int Wage_Per_Hour, int Total_Working_Days, int Total_Working_Hour)
         {
                 this.Company_name = Company_name;
                 this.Wage_Per_Hour = Wage_Per_Hour;
@@ -57,8 +57,8 @@ public class EmpWageBuilderObject
 
         public static void main(String[] args)
         {
-                EmpWageBuilderObject dMart = new EmpWageBuilderObject("dMart",20,30,100);
-                EmpWageBuilderObject tcs = new EmpWageBuilderObject("TCS",25,25,150);
+                EmpWageBuilderUC dMart = new EmpWageBuilderUC("dMart",20,30,100);
+                EmpWageBuilderUC tcs = new EmpWageBuilderUC("TCS",25,25,150);
                 dMart.ComputeWage();
                 System.out.println(dMart);
                 tcs.ComputeWage();
