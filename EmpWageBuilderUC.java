@@ -4,23 +4,32 @@ public class EmpWageBuilderUC
 	{
 		System.out.println("calculate employee wage");
 		//constants
-		int IS_FULL_TIME = 1;
+		int wagePerHour = 20;
+                int fullDayHour = 1;
+                int empWage = 0;
+		int empWageHalfDay = 0;
+		int is_present = 1;
 		//Computation
 		double empCheck = Math.floor(Math.random() * 10) % 2;
-		if (empCheck == IS_FULL_TIME)
+		if (empCheck == is_present)
+		{
 			System.out.println("present");
+			double empCheckWorkHour = Math.floor(Math.random() * 10) % 2;
+			if (empCheckWorkHour == fullDayHour)
+			{
+				empWage = wagePerHour * 8;
+                		System.out.println("employee wage = "+empWage);
+			}
+			else
+			{
+				empWageHalfDay = wagePerHour * 4;
+                		System.out.println("employee wage = "+empWageHalfDay);
+			}
+		}
 		else
-			System.out.println("absent");
-
-		int WagePerHour = 20;
-		int FullDayHour = 8;
-		int EmpWage = 0;
-		EmpWage = WagePerHour * FullDayHour;
-		System.out.println("employee wage = "+EmpWage);
-
-		int HalfDayHour = 4;
-                int EmpWage = 0;
-		EmpWageHalfDay = WagePerHour * HalfDayHour;
-                System.out.println("employee wage = "+EmpWageHalfDay);
+		{
+			empWage = 0;
+			System.out.println("employee is absent "+empWage);
+		}
 	}
 }
