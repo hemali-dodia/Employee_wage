@@ -4,46 +4,52 @@ public class EmpWageBuilderUC
 	{
 		System.out.println("calculate employee wage");
 		//constants
-		int IS_FULL_TIME = 1;
+		int is_present = 1;
+		int empWage = 0;
+		int wagePerHour = 20;
+                byte fullDayHour = 8;
+                byte halfDayHour = 4;
+                int empWageFullfDay = 0;
+		int empWageHalfDay = 0;
+		int workingDays = 20;
+		int totalWage = 0;
+		int wage = 0;
 		//Computation
 		double empCheck = Math.floor(Math.random() * 10) % 2;
-		if (empCheck == IS_FULL_TIME)
-			System.out.println("present");
-		else
-			System.out.println("absent");
-
-		int WagePerHour = 20;
-		byte FullDayHour = 8;
-		byte HalfDayHour = 4;
-		int EmpWageFullDay = 0;
-		int EmpWageHalfDay = 0;
-		int WorkingDays = 20;
-		int totalWage = 0;
-		int Wage = 0;
-
-		while(WorkingDays >= 0)
+		if (empCheck == is_present)
 		{
-			double WorkingTime = Math.floor(Math.random() * 10) % 2;
-			int Day = (int) WorkingTime;
-			switch(Day)
+			while(workingDays >= 0)
 			{
-			case 0:
-				EmpWageHalfDay = WagePerHour * HalfDayHour;
-				Wage = Wage + EmpWageHalfDay;
-        	        	//System.out.println("employee wage = "+EmpWageHalfDay);
-				break;
-        		case 1:
-				EmpWageFullDay = WagePerHour * FullDayHour;
-				Wage = Wage + EmpWageFullDay;
-        	        	//System.out.println("employee wage = "+EmpWageFullfDay);
-				break;
-			default:
-				System.out.println("employee wage = 0");
-				break;
+				System.out.println("present");
+				double workingTime = Math.floor(Math.random() * 10) % 2;
+                		int day = (int) workingTime;
+				switch(day)
+                		{
+                		case 0:
+                        		empWageHalfDay = wagePerHour * halfDayHour;
+					wage = wage + empWageHalfDay;
+                        		System.out.println("employee half day");
+                        		break;
+               			case 1:
+                        		empWageFullfDay = wagePerHour * fullDayHour;
+                        		wage = wage + empWageFullfDay;
+					System.out.println("employee full day");
+                        		break;
+                		default:
+                        		System.out.println("employee wage = 0");
+                        		break;
+				}
+				workingDays--;
+				totalWage = totalWage + wage;
 			}
-			WorkingDays--;
-			totalWage = totalWage + Wage;
+			System.out.println("monthly wage = "+totalWage);
 		}
-	System.out.println("monthly wage = "+totalWage);
+		else
+		{
+
+			empWage = 0;
+			System.out.println("absent, emp wage - "+empWage);
+		}
+
 	}
 }
