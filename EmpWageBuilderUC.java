@@ -9,12 +9,12 @@ public class EmpWageBuilderUC
 
 	public EmpWageBuilderUC()
 	{
-		comEmpArray = new comEmp[5];
+		CompanyEmpWage[] comEmpArray = new CompanyEmpWage[5];
 	}
 
 	public void addCompanyEmpWage(String Company_name, int Wage_Per_Hour, int Total_Working_Days, int Total_Working_Hour)
 	{
-		comEmpArray(numOfCompany) = new comEmp(Company_name, Wage_Per_Hour, Total_Working_Days, Total_Working_Hour);
+		comEmpArray(numOfCompany) = new CompanyEmpWage(Company_name, Wage_Per_Hour, Total_Working_Days, Total_Working_Hour);
 		numOfCompany++;
 	}
 
@@ -58,7 +58,8 @@ public class EmpWageBuilderUC
 			totalWorkingDays++;
 			totalWage = totalWage + Wage;
 		}
-	System.out.println("monthly wage = "+totalWage);
+		System.out.println("monthly wage = "+totalWage);
+		return totalWage;
 	}
 
 	public static void main(String[] args)
