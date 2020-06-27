@@ -35,7 +35,7 @@ public class EmpWageBuilderUC
 		int WorkingHour = 0;
 		int Wage = 0;
 
-		while(WorkingHour <= CompanyEmpWage.Total_Working_Hour || totalWorkingDays <= CompanyEmpWage.Total_Working_Days)
+		while(WorkingHour <= CompanyEmpWage.Total_Working_Hour && totalWorkingDays <= CompanyEmpWage.Total_Working_Days)
 		{
 			double WorkingTime = Math.floor(Math.random() * 10) % 2;
 			int Day = (int) WorkingTime;
