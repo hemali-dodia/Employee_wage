@@ -1,59 +1,73 @@
 public class EmpWageBuilderUC
 {
-	public static final byte Full_Day_Hour = 8;
-        public static final byte Half_Day_Hour = 4;
+	public static byte FULL_DAY_HOUR = 8;
+        public static byte HALF_DAY_HOUR = 4;
 
-        private final int Wage_Per_Hour;
-        private final int Total_Working_Days;
-        private final int Total_Working_Hour;
-        private final String Company_name;
+        private final int wage_per_hour;
+        private final int total_working_days;
+        private final int total_working_hour;
+        private final String company_name;
 	private int totalWage = 0;
 
-        public EmpWageBuilderUC(String Company_name, int Wage_Per_Hour, int Total_Working_Days, int Total_Working_Hour)
+        public EmpWageBuilderUC(String company_name, int wage_per_hour, int total_working_days, int total_working_hour)
         {
-                this.Company_name = Company_name;
-                this.Wage_Per_Hour = Wage_Per_Hour;
-                this.Total_Working_Days = Total_Working_Days;
-                this.Total_Working_Hour = Total_Working_Hour;
+                this.company_name = company_name;
+                this.wage_per_hour = wage_per_hour;
+                this.total_working_days = total_working_days;
+                this.total_working_hour = total_working_hour;
         }
 
         public void ComputeWage()
         {
-                int EmpWageFullDay = 0;
-                int EmpWageHalfDay = 0;
+		int empWage = 0;
+		int is_present = 1;
+                int empWageFullDay = 0;
+                int empWageHalfDay = 0;
                 int totalWorkingDays = 0;
-                int WorkingHour = 0;
-                int Wage = 0;
+                int workingHour = 0;
+                int wage = 0;
+		double empCheck = Math.floor(Math.random() * 10) % 2;
 
-                while(WorkingHour <= Total_Working_Hour && totalWorkingDays <= Total_Working_Days)
-                {
-                        double WorkingTime = Math.floor(Math.random() * 10) % 2;
-                        int Day = (int) WorkingTime;
-                        switch(Day)
-                        {
-                        case 0:
-                                EmpWageHalfDay = Wage_Per_Hour * Half_Day_Hour;
-                                Wage = Wage + EmpWageHalfDay;
-                                WorkingHour = WorkingHour + Half_Day_Hour;
-                                break;
-                        case 1:
-                                EmpWageFullDay = Wage_Per_Hour * Full_Day_Hour;
-                                Wage = Wage + EmpWageFullDay;
-                                WorkingHour = WorkingHour + Full_Day_Hour;
-                                break;
-                        default:
-                                System.out.println("employee wage = 0");
-                                break;
-                        }
-                        totalWorkingDays++;
-                        totalWage = totalWage + Wage;
-                }
-        System.out.println("monthly wage = "+totalWage);
-        }
+		if (empCheck == is_present)
+		{
+			System.out.println("employee present");
+
+	                while(workingHour <= total_working_hour && totalWorkingDays <= total_working_days)
+        	        {
+                	        double workingTime = Math.floor(Math.random() * 10) % 2;
+                	        int day = (int) workingTime;
+                	        switch(day)
+                	        {
+                	        case 0:
+                        	        empWageHalfDay = wage_per_hour * HALF_DAY_HOUR;
+                        	        wage = wage + empWageHalfDay;
+                        	        workingHour = workingHour + HALF_DAY_HOUR;
+                        	        break;
+                        	case 1:
+                        	        empWageFullDay = wage_per_hour * FULL_DAY_HOUR;
+                               		wage = wage + empWageFullDay;
+                                	workingHour = workingHour + FULL_DAY_HOUR;
+                                	break;
+                        	default:
+                                	System.out.println("employee wage = 0");
+                                	break;
+                        	}
+                        	totalWorkingDays++;
+                        	totalWage = totalWage + wage;
+                	}
+        		System.out.println("monthly wage = "+totalWage);
+        	}
+		else
+		{
+
+			empWage = 0;
+			System.out.println("absent, emp wage - "+empWage);
+		}
+	}
 
         @Override
         public String toString(){
-                return "total emp wage for company "+Company_name+" is "+totalWage;
+                return "total emp wage for company "+company_name+" is "+totalWage;
         }
 
         public static void main(String[] args)
