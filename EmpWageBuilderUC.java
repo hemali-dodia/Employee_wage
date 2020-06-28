@@ -17,16 +17,12 @@ public class EmpWageBuilderUC
 		int totalWage = 0;
 		int wage = 0;
 		//Computation
-		double empCheck = Math.floor(Math.random() * 10) % 2;
-		if (empCheck == is_present)
+		while(workingDays >= 0 && totalWorkingHour >= 0)
 		{
-			while(workingDays >= 0 && totalWorkingHour >= 0)
-			{
-				System.out.println("present");
-				double workingTime = Math.floor(Math.random() * 10) % 2;
-                		int day = (int) workingTime;
-				switch(day)
-                		{
+			double workingTime = Math.floor(Math.random() * 10) % 3;
+               		int day = (int) workingTime;
+			switch(day)
+               		{
                 		case 0:
                         		empWageHalfDay = wagePerHour * halfDayHour;
 					wage = wage + empWageHalfDay;
@@ -40,21 +36,13 @@ public class EmpWageBuilderUC
 					System.out.println("employee full day");
                         		break;
                 		default:
-                        		System.out.println("employee wage = 0");
+                        		System.out.println("employee wage absent");
                         		break;
-				}
-				totalWorkingHour = totalWorkingHour - workingHour;
-				workingDays--;
-				totalWage = totalWage + wage;
 			}
-			System.out.println("monthly wage = "+totalWage);
+			totalWorkingHour = totalWorkingHour - workingHour;
+			workingDays--;
+			totalWage = totalWage + wage;
 		}
-		else
-		{
-
-			empWage = 0;
-			System.out.println("absent, emp wage - "+empWage);
-		}
-
+		System.out.println("monthly wage = "+totalWage);
 	}
 }
