@@ -64,12 +64,10 @@ public class EmpWageBuilderUC
 
 	public static void main(String[] args)
 	{
-		EmpWageBuilderUC dMart = new EmpWageBuilderUC("dMart",20,30,100);
-		EmpWageBuilderUC tcs = new EmpWageBuilderUC("TCS",25,25,150);
-		dMart.ComputeWage();
-		System.out.println(dMart);
-		tcs.ComputeWage();
-		System.out.println(dMart);
+		EmpWageBuilderUC empWage = new EmpWageBuilderUC();
+		empWage.addCompanyEmpWage("DMart",20,2,10);
+		empWage.addCompanyEmpWage("tcs",25,20,20);
+		empWage.ComputeWage();
 	}
 }
 
