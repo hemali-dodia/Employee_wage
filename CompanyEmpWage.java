@@ -1,20 +1,18 @@
 public class CompanyEmpWage
 {
-	public final byte Full_Day_Hour = 8;
-        public final byte Half_Day_Hour = 4;
 
-	public final int Wage_Per_Hour;
-	public final int Total_Working_Days;
-        public final int Total_Working_Hour;
-	public final String Company_name;
+	public final int wage_per_hour;
+	public final int total_working_days;
+        public final int total_working_hour;
+	public final String company_name;
 	public	int totalWage = 0;
 
-	public CompanyEmpWage(String Company_name, int Wage_Per_Hour, int Total_Working_Days, int Total_Working_Hour)
+	public CompanyEmpWage(String company_name, int wage_per_hour, int total_working_days, int total_working_hour)
 	{
-		this.Company_name = Company_name;
-		this.Wage_Per_Hour = Wage_Per_Hour;
-		this.Total_Working_Days = Total_Working_Days;
-		this.Total_Working_Hour = Total_Working_Hour;
+		this.company_name = company_name;
+		this.wage_per_hour = wage_per_hour;
+		this.total_working_days = total_working_days;
+		this.total_working_hour = total_working_hour;
 	}
 
 	public void setTotalWage(int totalWage)
@@ -24,6 +22,6 @@ public class CompanyEmpWage
 
 	@Override
 	public String toString(){
-		return "total emp wage for company "+Company_name+" is "+totalWage;
+		return "total emp wage for company "+company_name+" is "+totalWage;
 	}
 }

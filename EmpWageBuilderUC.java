@@ -1,7 +1,8 @@
 public class EmpWageBuilderUC
 {
-        public final byte Full_Day_Hour = 8;
-        public final byte Half_Day_Hour = 4;
+	public static byte FULL_DAY_HOUR = 8;
+        public static byte HALF_DAY_HOUR = 4;
+
 	public int totalWage = 0;
 	public int numOfCompany = 0;
 
@@ -12,9 +13,9 @@ public class EmpWageBuilderUC
 		comEmpArray = new CompanyEmpWage[5];
 	}
 
-	public void addCompanyEmpWage(String Company_name, int Wage_Per_Hour, int Total_Working_Days, int Total_Working_Hour)
+	public void addCompanyEmpWage(String company_name, int wage_per_hour, int total_working_days, int total_working_hour)
 	{
-		comEmpArray[numOfCompany] = new CompanyEmpWage(Company_name, Wage_Per_Hour, Total_Working_Days, Total_Working_Hour);
+		comEmpArray[numOfCompany] = new CompanyEmpWage(company_name, wage_per_hour, total_working_days, total_working_hour);
 		numOfCompany++;
 	}
 
@@ -29,34 +30,34 @@ public class EmpWageBuilderUC
 
 	public int computeWage(CompanyEmpWage CompanyEmpWage)
 	{
-		int EmpWageFullDay = 0;
-		int EmpWageHalfDay = 0;
+		int empWageFullDay = 0;
+		int empWageHalfDay = 0;
 		int totalWorkingDays = 0;
-		int WorkingHour = 0;
-		int Wage = 0;
+		int workingHour = 0;
+		int wage = 0;
 
-		while(WorkingHour <= CompanyEmpWage.Total_Working_Hour && totalWorkingDays <= CompanyEmpWage.Total_Working_Days)
+		while(workingHour <= CompanyEmpWage.total_working_hour && totalWorkingDays <= CompanyEmpWage.total_working_days)
 		{
-			double WorkingTime = Math.floor(Math.random() * 10) % 2;
-			int Day = (int) WorkingTime;
-			switch(Day)
+			double working_time = Math.floor(Math.random() * 10) % 3;
+			int day = (int) working_time;
+			switch(day)
 			{
 			case 0:
-				EmpWageHalfDay = CompanyEmpWage.Wage_Per_Hour * Half_Day_Hour;
-				Wage = Wage + EmpWageHalfDay;
-        	        	WorkingHour = WorkingHour + Half_Day_Hour;
+				empWageHalfDay = CompanyEmpWage.wage_per_hour * HALF_DAY_HOUR;
+				wage = wage + empWageHalfDay;
+        	        	workingHour = workingHour + HALF_DAY_HOUR;
 				break;
         		case 1:
-				EmpWageFullDay = CompanyEmpWage.Wage_Per_Hour * Full_Day_Hour;
-				Wage = Wage + EmpWageFullDay;
-        	        	WorkingHour = WorkingHour + Full_Day_Hour;
+				empWageFullDay = CompanyEmpWage.wage_per_hour * FULL_DAY_HOUR;
+				wage = wage + empWageFullDay;
+        	        	workingHour = workingHour + FULL_DAY_HOUR;
 				break;
 			default:
-				System.out.println("employee wage = 0");
+				System.out.println("employee is absent");
 				break;
 			}
 			totalWorkingDays++;
-			totalWage = totalWage + Wage;
+			totalWage = totalWage + wage;
 		}
 	System.out.println("monthly wage = "+totalWage);
 	return totalWage;
