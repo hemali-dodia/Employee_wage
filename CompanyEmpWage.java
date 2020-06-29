@@ -1,7 +1,7 @@
 public class CompanyEmpWage
 {
-	public static final byte Full_Day_Hour = 8;
-        public static final byte Half_Day_Hour = 4;
+	public final byte Full_Day_Hour = 8;
+        public final byte Half_Day_Hour = 4;
 
 	public final int Wage_Per_Hour;
 	public final int Total_Working_Days;

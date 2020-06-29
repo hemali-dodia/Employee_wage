@@ -1,7 +1,7 @@
 public class EmpWageBuilderUC
 {
-        public static final byte Full_Day_Hour = 8;
-        public static final byte Half_Day_Hour = 4;
+        public final byte Full_Day_Hour = 8;
+        public final byte Half_Day_Hour = 4;
 	public int totalWage = 0;
 	public int numOfCompany = 0;
 
@@ -9,25 +9,33 @@ public class EmpWageBuilderUC
 
 	public EmpWageBuilderUC()
 	{
+<<<<<<< HEAD
 		CompanyEmpWage[] comEmpArray = new CompanyEmpWage[5];
+=======
+		comEmpArray = new CompanyEmpWage[5];
+>>>>>>> UC10
 	}
 
 	public void addCompanyEmpWage(String Company_name, int Wage_Per_Hour, int Total_Working_Days, int Total_Working_Hour)
 	{
+<<<<<<< HEAD
 		comEmpArray(numOfCompany) = new CompanyEmpWage(Company_name, Wage_Per_Hour, Total_Working_Days, Total_Working_Hour);
+=======
+		comEmpArray[numOfCompany] = new CompanyEmpWage(Company_name, Wage_Per_Hour, Total_Working_Days, Total_Working_Hour);
+>>>>>>> UC10
 		numOfCompany++;
 	}
 
-	public void ComputeWage()
+	public void computeWage()
         {
 		for(int i=0; i<numOfCompany; i++)
 		{
-			comEmpArray[i].setTotalWage(this.ComputeWage(comEmpArray[i]));
+			comEmpArray[i].setTotalWage(this.computeWage(comEmpArray[i]));
 			System.out.println(comEmpArray[i]);
 		}
 	}
 
-	public int ComputeWage(CompanyEmpWage CompanyEmpWage)
+	public int computeWage(CompanyEmpWage CompanyEmpWage)
 	{
 		int EmpWageFullDay = 0;
 		int EmpWageHalfDay = 0;
@@ -58,8 +66,13 @@ public class EmpWageBuilderUC
 			totalWorkingDays++;
 			totalWage = totalWage + Wage;
 		}
+<<<<<<< HEAD
 		System.out.println("monthly wage = "+totalWage);
 		return totalWage;
+=======
+	System.out.println("monthly wage = "+totalWage);
+	return totalWage;
+>>>>>>> UC10
 	}
 
 	public static void main(String[] args)
@@ -67,7 +80,7 @@ public class EmpWageBuilderUC
 		EmpWageBuilderUC empWage = new EmpWageBuilderUC();
 		empWage.addCompanyEmpWage("DMart",20,2,10);
 		empWage.addCompanyEmpWage("tcs",25,20,20);
-		empWage.ComputeWage();
+		empWage.computeWage();
 	}
 }
 
