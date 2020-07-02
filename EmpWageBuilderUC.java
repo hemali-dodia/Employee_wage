@@ -12,7 +12,7 @@ class Test implements ICompanyEmpWage
 {
 	public static byte FULL_DAY_HOUR = 8;
         public static byte HALF_DAY_HOUR = 4;
-
+	ArrayList dailyWage = new ArrayList();
 	public int totalWage = 0;
 
 	CompanyEmpWage comEmp = new CompanyEmpWage(company_name, wage_per_hour, total_working_days, total_working_hour);
@@ -51,13 +51,16 @@ class Test implements ICompanyEmpWage
 				empWageHalfDay = CompanyEmpWage.wage_per_hour * HALF_DAY_HOUR;
 				wage = wage + empWageHalfDay;
         	        	workingHour = workingHour + HALF_DAY_HOUR;
+				dailyWage.add(empWageHalfDay);
 				break;
         		case 1:
 				empWageFullDay = CompanyEmpWage.wage_per_hour * FULL_DAY_HOUR;
 				wage = wage + empWageFullDay;
         	        	workingHour = workingHour + FULL_DAY_HOUR;
+				dailyWage.add(empWageFullDay);
 				break;
 			default:
+				dailyWage.add(0);
 				System.out.println("employee is absent");
 				break;
 			}
