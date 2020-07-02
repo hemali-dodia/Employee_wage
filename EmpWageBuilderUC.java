@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.*;
 interface ICompanyEmpWage
 {
         void addCompanyEmpWage(String company_name, int wage_per_hour, int total_working_days, int total_working_hour);
@@ -12,42 +14,34 @@ class Test implements ICompanyEmpWage
         public static byte HALF_DAY_HOUR = 4;
 
 	public int totalWage = 0;
-	public int numOfCompany = 0;
-/*
-	public CompanyEmpWage[] comEmpArray;
+//	public int numOfCompany = 0;
 
-	public EmpWageBuilderUC()
-	{
-		comEmpArray = new CompanyEmpWage[5];
-	}
-*/
-	public CompanyEmpWage[] comEmpArray = new CompanyEmpWage[5];
+	CompanyEmpWage comEmp = new CompanyEmpWage(company_name, wage_per_hour, total_working_days, total_working_hour);
+
+	public ArrayList<CompanyEmpWage> comEmpArray = new ArrayList<CompanyEmpWage>();
 
 	public void addCompanyEmpWage(String company_name, int wage_per_hour, int total_working_days, int total_working_hour)
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-		comEmpArray(numOfCompany) = new CompanyEmpWage(Company_name, Wage_Per_Hour, Total_Working_Days, Total_Working_Hour);
-=======
-		comEmpArray[numOfCompany] = new CompanyEmpWage(Company_name, Wage_Per_Hour, Total_Working_Days, Total_Working_Hour);
->>>>>>> UC10
-=======
-		comEmpArray[numOfCompany] = new CompanyEmpWage(company_name, wage_per_hour, total_working_days, total_working_hour);
->>>>>>> UC10
-=======
-		comEmpArray[numOfCompany] = new CompanyEmpWage(company_name, wage_per_hour, total_working_days, total_working_hour);
->>>>>>> UC11
-		numOfCompany++;
+
+		//comEmpArray[numOfArray] = new CompanyEmpWage(company_name, wage_per_hour, total_working_days, total_working_hour);
+		comEmpArray.add(CompanyEmpWage(comEmp));
+		//numOfCompany++;
 	}
 
 	public void computeWage()
         {
+		Iterator<CompanyEmpWage> it = comEmpArray.iterator();
+		while(it.hasNext())
+		{
+			CompanyEmpWage ce = it.next();
+		}
+		/*
 		for(int i=0; i<numOfCompany; i++)
 		{
 			comEmpArray[i].setTotalWage(this.computeWage(comEmpArray[i]));
 			System.out.println(comEmpArray[i]);
 		}
+		*/
 	}
 
 	public int computeWage(CompanyEmpWage CompanyEmpWage)
@@ -88,19 +82,10 @@ class Test implements ICompanyEmpWage
 
 public class EmpWageBuilderUC
 {
-	/*
-	public CompanyEmpWage[] comEmpArray;
-
-        public EmpWageBuilderUC()
-        {
-                comEmpArray = new CompanyEmpWage[5];
-        }
-*/
 	public static void main(String[] args)
 	{
 		Test t = new Test();
 
-		//EmpWageBuilderUC empWage = new EmpWageBuilderUC();
 		t.addCompanyEmpWage("DMart",20,2,10);
 		t.addCompanyEmpWage("tcs",25,20,20);
 		t.computeWage();
