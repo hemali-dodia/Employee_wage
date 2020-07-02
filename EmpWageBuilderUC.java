@@ -1,18 +1,27 @@
+interface ICompanyEmpWage
+{
+        void addCompanyEmpWage(String company_name, int wage_per_hour, int total_working_days, int total_working_hour);
+        void computeWage();
+        int computeWage(CompanyEmpWage CompanyEmpWage);
+}
 
-public class EmpWageBuilderUC implements ICompanyEmpWage
+
+class Test implements ICompanyEmpWage
 {
 	public static byte FULL_DAY_HOUR = 8;
         public static byte HALF_DAY_HOUR = 4;
 
 	public int totalWage = 0;
 	public int numOfCompany = 0;
-
+/*
 	public CompanyEmpWage[] comEmpArray;
 
 	public EmpWageBuilderUC()
 	{
 		comEmpArray = new CompanyEmpWage[5];
 	}
+*/
+	public CompanyEmpWage[] comEmpArray = new CompanyEmpWage[5];
 
 	public void addCompanyEmpWage(String company_name, int wage_per_hour, int total_working_days, int total_working_hour)
 	{
@@ -63,12 +72,25 @@ public class EmpWageBuilderUC implements ICompanyEmpWage
 		System.out.println("monthly wage = "+totalWage);
 		return totalWage;
 	}
+}
 
+public class EmpWageBuilderUC
+{
+	/*
+	public CompanyEmpWage[] comEmpArray;
+
+        public EmpWageBuilderUC()
+        {
+                comEmpArray = new CompanyEmpWage[5];
+        }
+*/
 	public static void main(String[] args)
 	{
-		EmpWageBuilderUC empWage = new EmpWageBuilderUC();
-		empWage.addCompanyEmpWage("DMart",20,2,10);
-		empWage.addCompanyEmpWage("tcs",25,20,20);
-		empWage.computeWage();
+		Test t = new Test();
+
+		//EmpWageBuilderUC empWage = new EmpWageBuilderUC();
+		t.addCompanyEmpWage("DMart",20,2,10);
+		t.addCompanyEmpWage("tcs",25,20,20);
+		t.computeWage();
 	}
 }
