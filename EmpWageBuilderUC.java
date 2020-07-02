@@ -14,7 +14,6 @@ class Test implements ICompanyEmpWage
         public static byte HALF_DAY_HOUR = 4;
 
 	public int totalWage = 0;
-//	public int numOfCompany = 0;
 
 	CompanyEmpWage comEmp = new CompanyEmpWage(company_name, wage_per_hour, total_working_days, total_working_hour);
 
@@ -22,10 +21,7 @@ class Test implements ICompanyEmpWage
 
 	public void addCompanyEmpWage(String company_name, int wage_per_hour, int total_working_days, int total_working_hour)
 	{
-
-		//comEmpArray[numOfArray] = new CompanyEmpWage(company_name, wage_per_hour, total_working_days, total_working_hour);
 		comEmpArray.add(CompanyEmpWage(comEmp));
-		//numOfCompany++;
 	}
 
 	public void computeWage()
@@ -35,13 +31,6 @@ class Test implements ICompanyEmpWage
 		{
 			CompanyEmpWage ce = it.next();
 		}
-		/*
-		for(int i=0; i<numOfCompany; i++)
-		{
-			comEmpArray[i].setTotalWage(this.computeWage(comEmpArray[i]));
-			System.out.println(comEmpArray[i]);
-		}
-		*/
 	}
 
 	public int computeWage(CompanyEmpWage CompanyEmpWage)
