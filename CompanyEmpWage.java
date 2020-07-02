@@ -1,10 +1,12 @@
-interface ICompanyEmpWage
+/*interface ICompanyEmpWage
 {
 	void addCompanyEmpWage(String company_name, int wage_per_hour, int total_working_days, int total_working_hour);
 	void computeWage();
 	int computeWage(CompanyEmpWage CompanyEmpWage);
+	void setTotalWage(int totalWage);
+	String toString();
 }
-
+*/
 public class CompanyEmpWage
 {
 	public final byte Full_Day_Hour = 8;
